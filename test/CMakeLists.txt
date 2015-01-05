@@ -21,7 +21,7 @@ EXTERNALPROJECT_GET_PROPERTY(gtest source_dir binary_dir)
 SET_TARGET_PROPERTIES(libgtest PROPERTIES
     "IMPORTED_LOCATION" "${binary_dir}/libgtest.a"
     "IMPORTED_LINK_INTERFACE_LIBRARIES" "${CMAKE_THREAD_LIBS_INIT}"
-    "INTERFACE_INCLUDE_DIRECTORIES" "${source_dir}/include"
+#    "INTERFACE_INCLUDE_DIRECTORIES" "${source_dir}/include"
 )
 # I couldn't make it work with INTERFACE_INCLUDE_DIRECTORIES
 INCLUDE_DIRECTORIES("${source_dir}/include")
@@ -44,7 +44,7 @@ EXTERNALPROJECT_GET_PROPERTY(gmock source_dir binary_dir)
 SET_TARGET_PROPERTIES(libgmock PROPERTIES
     "IMPORTED_LOCATION" "${binary_dir}/libgmock.a"
     "IMPORTED_LINK_INTERFACE_LIBRARIES" "${CMAKE_THREAD_LIBS_INIT}"
-    "INTERFACE_INCLUDE_DIRECTORIES" "${source_dir}/include"
+#    "INTERFACE_INCLUDE_DIRECTORIES" "${source_dir}/include"
 )
 # I couldn't make it work with INTERFACE_INCLUDE_DIRECTORIES
 INCLUDE_DIRECTORIES("${source_dir}/include")
