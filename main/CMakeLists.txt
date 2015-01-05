@@ -1,15 +1,15 @@
-SET(Main_SRCS
+set(Main_SRCS
     main.cpp
 )
 
-ADD_EXECUTABLE(myApp
+add_executable(myApp
     ${Main_SRCS}
 )
 
 # Specify here the libraries this program depends on
-TARGET_LINK_LIBRARIES(myApp
+target_link_libraries(myApp
     libfoo
     libbar
 )
 
-INSTALL(TARGETS myApp DESTINATION bin)
+install(TARGETS myApp DESTINATION bin)

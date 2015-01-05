@@ -1,10 +1,10 @@
-FIND_PACKAGE(Threads REQUIRED)
+find_package(Threads REQUIRED)
 
 # Enable ExternalProject CMake module
-INCLUDE(ExternalProject)
+include(ExternalProject)
 
 # Download and install GoogleTest
-EXTERNALPROJECT_ADD(
+ExternalProject_Add(
     gtest
     URL https://googletest.googlecode.com/files/gtest-1.7.0.zip
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gtest
@@ -13,21 +13,21 @@ EXTERNALPROJECT_ADD(
 )
 
 # Create a libgtest target to be used as a dependency by test programs
-ADD_LIBRARY(libgtest IMPORTED STATIC GLOBAL)
-ADD_DEPENDENCIES(libgtest gtest)
+add_library(libgtest IMPORTED STATIC GLOBAL)
+add_dependencies(libgtest gtest)
 
 # Set gtest properties
-EXTERNALPROJECT_GET_PROPERTY(gtest source_dir binary_dir)
-SET_TARGET_PROPERTIES(libgtest PROPERTIES
+ExternalProject_Get_Property(gtest source_dir binary_dir)
+set_target_properties(libgtest PROPERTIES
     "IMPORTED_LOCATION" "${binary_dir}/libgtest.a"
     "IMPORTED_LINK_INTERFACE_LIBRARIES" "${CMAKE_THREAD_LIBS_INIT}"
 #    "INTERFACE_INCLUDE_DIRECTORIES" "${source_dir}/include"
 )
 # I couldn't make it work with INTERFACE_INCLUDE_DIRECTORIES
-INCLUDE_DIRECTORIES("${source_dir}/include")
+include_directories("${source_dir}/include")
 
 # Download and install GoogleMock
-EXTERNALPROJECT_ADD(
+ExternalProject_Add(
     gmock
     URL https://googlemock.googlecode.com/files/gmock-1.7.0.zip
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gmock
@@ -36,17 +36,17 @@ EXTERNALPROJECT_ADD(
 )
 
 # Create a libgmock target to be used as a dependency by test programs
-ADD_LIBRARY(libgmock IMPORTED STATIC GLOBAL)
-ADD_DEPENDENCIES(libgmock gmock)
+add_library(libgmock IMPORTED STATIC GLOBAL)
+add_dependencies(libgmock gmock)
 
 # Set gmock properties
-EXTERNALPROJECT_GET_PROPERTY(gmock source_dir binary_dir)
-SET_TARGET_PROPERTIES(libgmock PROPERTIES
+ExternalProject_Get_Property(gmock source_dir binary_dir)
+set_target_properties(libgmock PROPERTIES
     "IMPORTED_LOCATION" "${binary_dir}/libgmock.a"
     "IMPORTED_LINK_INTERFACE_LIBRARIES" "${CMAKE_THREAD_LIBS_INIT}"
 #    "INTERFACE_INCLUDE_DIRECTORIES" "${source_dir}/include"
 )
 # I couldn't make it work with INTERFACE_INCLUDE_DIRECTORIES
-INCLUDE_DIRECTORIES("${source_dir}/include")
+include_directories("${source_dir}/include")
 
-ADD_SUBDIRECTORY(testfoo)
+add_subdirectory(testfoo)

@@ -1,10 +1,10 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-PROJECT(myProject)
+project(myProject)
 
 enable_testing()
 
-ADD_SUBDIRECTORY(main)
-ADD_SUBDIRECTORY(test)
-ADD_SUBDIRECTORY(libfoo)
-ADD_SUBDIRECTORY(libbar)
+add_subdirectory(main)
+add_subdirectory(test)
+add_subdirectory(libfoo)
+add_subdirectory(libbar)

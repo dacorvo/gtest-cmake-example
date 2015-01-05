@@ -1,19 +1,19 @@
-SET(libbar_SRCS
+set(libbar_SRCS
     bar.h
     bar.cpp
 )
 
 # Declare the library
-ADD_LIBRARY(libbar STATIC
+add_library(libbar STATIC
     ${libbar_SRCS}
 )
 
-TARGET_LINK_LIBRARIES(libbar
+target_link_libraries(libbar
     libfoo
 )
 
 # Specify here the include directories exported
 # by this library
-TARGET_INCLUDE_DIRECTORIES(libbar PUBLIC
+target_include_directories(libbar PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
