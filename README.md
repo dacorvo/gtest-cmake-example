@@ -18,5 +18,7 @@ cd build && make test
 or
 
 ~~~
-build/test/tesfoo/testfoo
+build/test/testfoo/testfoo
 ~~~
+
+Refer to [this blog post](http://kaizou.org/2014/11/gtest-cmake/) for a detailed explaination of how it works.
